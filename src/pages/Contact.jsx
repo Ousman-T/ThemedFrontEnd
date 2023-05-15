@@ -4,7 +4,13 @@ function Contact(){
     return(
         <div className="Contact">
             <h1>Contact Us</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae magnam totam atque similique officia dolores ab. Illum adipisci ducimus doloribus? Animi commodi perspiciatis modi quae iusto, sunt vel quisquam magnam!</p>
+            <form action='/contact' method="POST">
+                Name:<input type="text" name="name"/>
+                <br />
+                Email:<input type="text" name="email"/>
+                <br />
+                Number:<input type="number" name="number"/>
+            </form>
         </div>
     )
 };
