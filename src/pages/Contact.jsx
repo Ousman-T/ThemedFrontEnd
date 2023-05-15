@@ -10,6 +10,7 @@ function Contact(){
                 Email:<input type="text" name="email"/>
                 <br />
                 Number:<input type="number" name="number"/>
+                <br />
                 <button type="submit">Submit Info?</button>
             </form>
         </div>
