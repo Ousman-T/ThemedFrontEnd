@@ -1,5 +1,5 @@
 const BASE_URL = '/contact'
-
+const contactData = require('../pages/Contact')
 /*--- Helper Functions ---*/
 
 async function sendRequest(url, method = 'GET', payload = null) {
