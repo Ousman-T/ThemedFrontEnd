@@ -9,7 +9,7 @@ function Contact(){
         number: ""
     });
 
-    const handleChance = (evt) => {
+    const handleChange = (evt) => {
         setNewContact({...newContact, [evt.target.name]: evt.target.value, error: ""})
     };
 
@@ -37,14 +37,14 @@ function Contact(){
     return(
         <div className="Contact">
             <h1>Contact Us</h1>
-            <form action='/contact' method="POST" >
-                Name:<input type="text" name="name"/>
+            <form action='/contact' method="POST" onSubmit={handleSubmit}>
+                Name:<input type="text" name="name" onChange={handleChange}/>
                 <br />
-                Email:<input type="text" name="email"/>
+                Email:<input type="text" name="email" onChange={handleChange}/>
                 <br />
-                Number:<input type="number" name="number"/>
+                Number:<input type="number" name="number" onChange={handleChange}/>
                 <br />
-                <button type="submit">Submit Info?</button>
+                <button type="submit" onSubmit={handleSubmit}>Submit Info?</button>
             </form>
         </div>
     )
