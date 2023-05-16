@@ -13,10 +13,20 @@ async function create(req, res){
         res.status(400).json(error)
     }
 };
+async function remove(req, res){
+    const {_id} = req.body
+    const contact = Reachout.findByIdAndDelete(_id)
+    .then(() => {
+        console.log('Contact deleted');
+        res.status(200).json(Reachout);
+    })
+    .catch((error) => console.error(error));
+};
 
 
 
 
 module.exports = {
-    create
+    create,
+    remove
 }
