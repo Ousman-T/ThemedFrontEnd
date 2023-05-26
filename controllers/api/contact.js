@@ -5,6 +5,7 @@ const Reachout = require('../../models/contact');
 
 async function create(req, res){
     try{
+        console.log('inside controller');
         const contact = await Reachout.create(req.body);
         console.log(contact);
         res.json(contact);

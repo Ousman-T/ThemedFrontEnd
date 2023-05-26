@@ -1,4 +1,4 @@
-const BASE_URL = '/contact'
+const BASE_URL = '/api'
 /*--- Helper Functions ---*/
 
 async function sendRequest(url, method = 'GET', payload = null) {
@@ -9,6 +9,7 @@ async function sendRequest(url, method = 'GET', payload = null) {
       options.headers = { 'Content-Type': 'application/json' };
       options.body = JSON.stringify(payload);
       console.log("here we are");
+      console.log(url);
     }
     const res = await fetch(url, options);
     if (res.ok) return res.json();
@@ -18,7 +19,7 @@ async function sendRequest(url, method = 'GET', payload = null) {
 // * Create Contact
 export function createContact(contactData){
     console.log('Creating contact through API');
-    return sendRequest(`${BASE_URL}`, 'POST', contactData);
+    return sendRequest(`${BASE_URL}/contact/new`, 'POST', contactData);
     
 };
 

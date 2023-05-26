@@ -5,9 +5,9 @@ const router = express.Router();
 const ReachoutCtrl = require('../controllers/api/contact');
 
 // * POST
-router.post('/contact', ReachoutCtrl.create);
+router.post('/contact/new', ReachoutCtrl.create);
 
-router.get('/', (req, res) => {
+router.get('/test', (req, res) => {
     res.send('Hello World!')
 });
 
