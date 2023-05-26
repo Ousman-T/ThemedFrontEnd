@@ -1,5 +1,4 @@
 const BASE_URL = '/contact'
-const contactData = require('../pages/Contact')
 /*--- Helper Functions ---*/
 
 async function sendRequest(url, method = 'GET', payload = null) {
@@ -11,16 +10,19 @@ async function sendRequest(url, method = 'GET', payload = null) {
       options.body = JSON.stringify(payload);
       console.log("here we are");
     }
+    const res = await fetch(url, options);
+    if (res.ok) return res.json();
+    throw new Error('Bad Request');
 }
 
 // * Create Contact
-export function createContact(){
+export function createContact(contactData){
     console.log('Creating contact through API');
     return sendRequest(`${BASE_URL}`, 'POST', contactData);
     
 };
 
 // ! Delete contact
-export function removeContact(){
+export function removeContact(contactData){
     return sendRequest(`${BASE_URL}`, 'DELETE', contactData);
 };

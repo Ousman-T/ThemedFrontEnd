@@ -2,6 +2,8 @@ require('dotenv').config();
 require('./config/database'); // connects to db
 const express = require('express');
 const path = require('path'); // node modules
+const logger = require('morgan');
+const favicon = require('serve-favicon');
 
 
 const app = express();
@@ -10,8 +12,17 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 //* Config
+// app.use(logger('dev'));
+
+//* Middlewares
+app.use(express.json());
 app.use(logger('dev'));
 app.use(express.json());
+app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, 'build')));
+
+
+app.use('/contact', require('./routes/contact'));
 
 
 
